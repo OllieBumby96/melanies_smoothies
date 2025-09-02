@@ -44,10 +44,11 @@ if ingredients_list:
         
         st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
 
-    my_insert_stmt = """ insert into smoothies.public.orders(ingredients)
+    my_insert_stmt = """ insert into smoothies.public.orders
             values ('""" + ingredients_string + """')"""+name_on_order+"""')"""
     
     time_to_insert = st.button('Submit Order')
+  
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
         
